@@ -1,5 +1,4 @@
 $(function () {
-    console.log("TEST");
     $(".updateBtn").on("click", function (event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
@@ -23,24 +22,24 @@ $(function () {
     });
 
     $("#createBtn").on("click", function (event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
+            // Make sure to preventDefault on a submit event.
+            event.preventDefault();
 
-        var newBurger = {
-            name: $("#burgerName").val().trim(),
-            devoured: false
-        };
-        console.log(newBurger);
-        // Send the POST request.
-        $.ajax("/api/burgers/create", {
-            type: "POST",
-            data: newBurger
-        }).then(
-            function () {
-                console.log("created new burger");
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
+            var newBurger = {
+                name: $("#burgerName").val().trim(),
+                devoured: false
+            };
+            console.log(newBurger);
+            // Send the POST request.
+            $.ajax("/api/burgers/create", {
+                type: "POST",
+                data: newBurger
+            }).then(
+                function () {
+                    console.log("created new burger");
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
     });
 });
