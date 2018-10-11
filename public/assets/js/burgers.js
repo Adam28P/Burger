@@ -22,9 +22,12 @@ $(function () {
     });
 
     $("#createBtn").on("click", function (event) {
-            // Make sure to preventDefault on a submit event.
-            event.preventDefault();
 
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var burgerTitle = $("#burgerName").val().trim();
+        if (burgerTitle != "") {
             var newBurger = {
                 name: $("#burgerName").val().trim(),
                 devoured: false
@@ -41,5 +44,8 @@ $(function () {
                     location.reload();
                 }
             );
+        } else {
+           alert("Burger Name field cannot be empty!");
+        }
     });
 });
